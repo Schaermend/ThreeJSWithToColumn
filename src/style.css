@@ -1,27 +1,31 @@
 html, body{
-  margin:0;
-  height: 100%
+  margin: 0px;
+  height: 100%;
+  background-color: beige
   }
-
-.flex-container {
-  display: flex;
+body{
+  margin:3px;
 }
-
-.flex-child-left {
-    flex: 1;
-    border: 2px solid yellow;
-}  
-.flex-child-right {
-  flex: 2;
-  border: 2px solid yellow;
-}  
-.flex-child:first-child {
-    margin-right: 5px;
-} 
 .magenta{
   background-color: magenta;
 }
 
 .green{
   background-color: green;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+  border: 2px solid rgb(182, 45, 45);
+  padding-top: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+.data{
+  padding-left: 2px;
+  padding-top: 2px;
+  border: 2px solid rgb(182, 45, 45);
+  height: 25px 
 }

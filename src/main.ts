@@ -3,13 +3,18 @@ import './style.css'
 
 function initializeCanvas() {
     return new Promise(() => {
-        const x=document.getElementById('app');
+        const sw=window.innerWidth;
+        const sh=window.innerHeight;
+        const app=document.getElementById('app');
         const right=document.getElementById('col_right');
-        if(x && right){
-            x.style.width=right.clientWidth+"px";
-            x.style.height=right.clientHeight+"px";
-
-            const xscene=new XScene();
+        const left=document.getElementById('col_left');
+        if(app && right && left){
+            const lw=sw*0.75;
+            app.style.width=lw+"px";
+            app.style.height=sh*0.95+"px";
+            //left.style.width=sw-sw*0.75-20+"px"
+            right.style.width=lw+'px';
+;           const xscene=new XScene();
             xscene.animate();
          }
     });

@@ -7,17 +7,47 @@
     <title>Threejs Boilerplate</title>
   </head>
   <body>
-    <div class="flex-container">
-
-      <div class="flex-child-left magenta">
-        Flex Column 1
+    <div class="grid-container">
+      <div id="col_left" class="grid-child magenta">
+          Grid Column 1
       </div>
-      
-      <div id="col_right" class="flex-child-right green">
-        <div id="app"></div>
+  
+      <div id="col_right" class="grid-child">
+          <div id="app"></div>
       </div>
-      
-    </div>
+  </div>
+  <div class="data">
+    <label for="object">Objekt</label>
+    <select name="object">
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="-">Other</option>
+    </select>
+    <span>
+      <label for="vx">Vx:</label>
+      <input type="text" name="vx">
+    </span>
+    <span>
+      <label for="vy">Vy:</label>
+      <input type="text" name="vy">
+    </span>
+    <span>
+      <label for="vz">Vz:</label>
+      <input type="text" name="vz">
+    </span>
+    <span>
+      <label for="x">X:</label>
+      <input type="text" name="x">
+    </span>
+    <span>
+      <label for="y">Y:</label>
+      <input type="text" name="y">
+    </span>
+    <span>
+      <label for="z">Z:</label>
+      <input type="text" name="z">
+    </span>
+  </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
