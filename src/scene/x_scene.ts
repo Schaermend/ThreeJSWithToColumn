@@ -27,9 +27,6 @@ export class XScene{
         this.camera.position.z=100;
         this.scene=new Scene();
         this.renderer=new WebGLRenderer();
-      //  this.renderer.setSize(container.clientWidth, container.clientHeight, false);
-
-        console.log(container.clientHeight, "xxxxxxxxxxxxxxxxxxx");
         this.renderer.setSize(this.width, this.height, false);
         container.appendChild(this.renderer.domElement);
         //document.body.appendChild(this.renderer.domElement);

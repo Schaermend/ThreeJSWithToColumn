@@ -3,17 +3,25 @@ html, body{
   height: 100%
   }
 
-  .float-container {
-    border: 3px solid #fff;
-    padding: 20px;
+.flex-container {
+  display: flex;
 }
 
-.float-child {
-    width: 40%;
-    float: left;
-    padding: 20px;
-    border: 2px solid red;
+.flex-child-left {
+    flex: 1;
+    border: 2px solid yellow;
 }  
-cancas{
-  padding:30px;
+.flex-child-right {
+  flex: 2;
+  border: 2px solid yellow;
+}  
+.flex-child:first-child {
+    margin-right: 5px;
+} 
+.magenta{
+  background-color: magenta;
+}
+
+.green{
+  background-color: green;
 }
