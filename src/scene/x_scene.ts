@@ -13,14 +13,26 @@ export class XScene{
     private sphere: Mesh
     private child: Mesh
     private object: Object3D
+    private width: number;
+    private height: number
 
-    private constructor(){
-        this.camera=new PerspectiveCamera(75, window.innerWidth/window.innerHeight,0.1, 1000);
+    constructor(){
+        const container=document.querySelector("#app");
+        if(!container){
+            throw "Container nicht gefunden"
+        }
+        this.width=container.clientWidth;
+        this.height=container.clientHeight;
+        this.camera=new PerspectiveCamera(75, this.width/this.height,0.1, 1000);
         this.camera.position.z=100;
         this.scene=new Scene();
         this.renderer=new WebGLRenderer();
-        this.renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(this.renderer.domElement);
+      //  this.renderer.setSize(container.clientWidth, container.clientHeight, false);
+
+        console.log(container.clientHeight, "xxxxxxxxxxxxxxxxxxx");
+        this.renderer.setSize(this.width, this.height, false);
+        container.appendChild(this.renderer.domElement);
+        //document.body.appendChild(this.renderer.domElement);
         window.addEventListener('resize', this.onWindowResize, false);
         new OrbitControls(this.camera, this.renderer.domElement);
         this.geometry1=new SphereGeometry(16,30,30);
@@ -39,9 +51,17 @@ export class XScene{
         return this.instance;
     }
     onWindowResize=()=>{
-        this.camera.aspect=window.innerWidth/window.innerHeight
-        this.camera.updateProjectionMatrix();
-        this.renderer.setSize(window.innerWidth, window.innerHeight);
+        const canvas=this.renderer.domElement;
+        const width=canvas.clientWidth;
+        const height=canvas.clientHeight
+        if(canvas.width !==width || canvas.height !==height){
+            this.renderer.setSize(width, height, false);
+            this.camera.aspect = width / height;
+            this.camera.updateProjectionMatrix();
+        }
+        // this.camera.aspect=window.innerWidth/window.innerHeight
+        // this.camera.updateProjectionMatrix();
+        // this.renderer.setSize(window.innerWidth, window.innerHeight);
         this.render();
     }
     animate=()=>{
